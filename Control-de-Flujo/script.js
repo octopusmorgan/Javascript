@@ -18,18 +18,18 @@ console.log(businessHours(day,hour));
 
 //Part-2
 var yearDay = parseInt(prompt("Day Number"));
-
-function getDayNumber(yearDayNumber) {
+var janDay = parseInt(prompt("Jan Day"));
+function getDayNumber(janFirstDayNumber,yearDayNumber) {
     if(yearDayNumber>=0 && yearDayNumber<=365)
     {  
-        var weekDay =yearDayNumber%7; 
+        var weekDay =yearDayNumber+(janFirstDayNumber-1);
+        weekDay =weekDay%7; 
         console.log(weekDay);
         return weekDay;
     }
-    
 }
 
-var week = getDayNumber(yearDay);
+var week = getDayNumber(janDay,yearDay);
 printDay(week);
 function printDay(d){
     switch(d){
@@ -56,8 +56,6 @@ function printDay(d){
         break;
     }
 }
-
-
 //Part-3
 function businessTime(weekDay,hourNum) {
     if(weekDay>=1 && weekDay<6){
@@ -71,6 +69,7 @@ function businessTime(weekDay,hourNum) {
 }
 
 businessTime(week,hour);
+
 
 //Challenge
 
